@@ -1,14 +1,15 @@
-import { app, BrowserWindow } from "electron";
+import { app, BrowserWindow, screen } from "electron";
 import * as path from "path";
 
 function createWindow() {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     height: 600,
+    width: 800,
     webPreferences: {
+      contextIsolation: true, // add this
       preload: path.join(__dirname, "preload.js"),
     },
-    width: 800,
   });
 
   // and load the index.html of the app.
